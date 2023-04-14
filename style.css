@@ -1,0 +1,182 @@
+body {
+    margin: 0;
+    font-family: 'Roboto';
+    background-color: #f1f6fe;
+}
+
+main {
+    margin: auto 2rem;
+}
+
+.nav {
+    background-color: #002D6F;
+    padding: 1rem;
+}
+
+.heading {
+    color: #FFFFFF;
+}
+
+.name {
+    color: #002D6F;
+    margin: 8px 0rem;
+}
+
+.motivate {
+    color: #979797;
+    margin: 8px 0rem;
+}
+
+.input {
+    padding: 0.8rem 1rem;
+}
+
+.todohead {
+    color: #002D6F;
+}
+
+.done {
+    background-color: #002D6F;
+    color: #FFFFFF;
+    padding: 0.9rem 1.5rem;
+    border-radius: 0.5rem;
+    border: 0;
+}
+
+.addNewTask {
+    margin-top: 2rem;
+}
+
+.tasks {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.todo {
+    width: 45%;
+}
+
+.todo ul {
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: column;
+    padding-left: 0;
+}
+
+.todo li {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    list-style: none;
+    padding: 1rem 1rem;
+    background-color: #FFFFFF;
+    border: solid black 0.1rem;
+}
+
+.completed {
+    width: 45%;
+}
+
+.completed ul {
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: column;
+    padding-left: 0;
+}
+
+.completed li {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    list-style: none;
+    padding: 1rem 1rem;
+    background-color: #ededed;
+    border: solid black 0.1rem;
+}
+
+.todoItem label {
+    width: 10%;
+}
+
+.todoItem span {
+    width: 90%;
+}
+
+
+
+
+
+
+/* for ckeckbox */
+.checkbox {
+    display: inline-block;
+    position: relative;
+    width: 20px;
+    height: 20px;
+}
+
+.checkbox input[type=checkbox] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkmark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+
+.checkmark::after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 4px;
+    top: 1px;
+    width: 4px;
+    height: 8px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.checkbox input[type=checkbox]:checked+.checkmark {
+    background-color: #5cb85c;
+}
+
+.checkbox input[type=checkbox]:checked+.checkmark::after {
+    display: block;
+}
+
+
+
+
+
+
+/* for responsiveness */
+
+@media (max-width: 800px) {
+    .tasks {
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+    }
+
+    .todo {
+        width: 100%;
+    }
+
+    .completed {
+        width: 100%;
+    }
+}

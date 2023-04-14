@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <title>To-Do</title>
+</head>
+<body>
+    <header>
+        <div class="nav">
+            <center><strong><span class="heading">To-Do</span></strong></center>
+        </div>
+    </header>
+
+    <main>
+        <section id="greet">
+            <h1 class="name">Good Evening, Suganth</h1>
+            <h2 class="motivate">Be so good no one can ignore you</h2>
+        </section>
+
+        <section id="inputHead">
+            <form class="addNewTask" onsubmit="addTask(event)">
+                <input class="input" id="todoInput" type="text" placeholder="Enter Task" size="28" required>
+                <input type="submit" value="Done" class="done">
+            </form>
+        </section>
+
+        <section id="tasksection">
+            <div class="tasks">
+                <div class="todo">
+                    <p><span class="todohead"><strong>Remaining Task</strong></span> (<span id="todoCount"></span>)</p>
+
+                    <ul id="todoList">
+                    </ul>
+                </div>
+                <div class="completed">
+                    <p><span class="todohead"><strong>Completed Task</strong></span>(<span id="completedCount"></span>)</p>
+                    <ul id="completedList">
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
