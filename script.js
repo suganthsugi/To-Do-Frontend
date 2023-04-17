@@ -73,7 +73,7 @@ const removeFromTodo = (id) => {
     addCompleted(rtodo);
 }
 
-const removeFromCompleted = () => {
+const removeFromCompleted = (id) => {
     rtodo = completed.filter((obj) => obj.id === id)[0];
     completed.splice(completed.indexOf(rtodo), 1);
     updateCompletedCount();
