@@ -43,6 +43,22 @@ main {
     border: 0;
 }
 
+.editBtn{
+    background-color: #09c199;
+    color: #ffffff;
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+    border: 0;
+}
+
+.delBtn{
+    background-color: #c10f09;
+    color: #ffffff;
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+    border: 0;
+}
+
 .addNewTask {
     margin-top: 2rem;
 }
@@ -104,7 +120,10 @@ main {
     width: 90%;
 }
 
-
+.task-item {
+    display: flex;
+    justify-content: space-between;
+}
 
 
 

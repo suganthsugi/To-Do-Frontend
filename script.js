@@ -11,6 +11,7 @@ const createTodo = () => {
         id,
         todo: document.getElementById("todoInput").value
     };
+    console.log(newTodo);
     return newTodo;
 }
 
@@ -45,12 +46,16 @@ const updateTodoHtml = () => {
 
 
 const buildTodoHtml = () => {
-    return todos.reduce((accu, element) => accu + `<li>
+    return todos.reduce((accu, element) => accu + `<li class="task-item">
                                                         <label class="checkbox">
                                                             <input type="checkbox" id="${element.id}" onclick="removeTask(${element.id}, ${1})">
                                                             <span class="checkmark"></span>
                                                         </label>
-                                                        <label class="todoText" for="${element.id}">${element.todo}</label>
+                                                        <label for="${element.id}" class="todoText">${element.todo}</label>
+                                                        <div>
+                                                        <button class="editBtn" onclick="editTodo(${element.id})">Edit</button>
+                                                        <button class="delBtn" onclick="deleteTodo(${element.id})">Delete</button>
+                                                        </div>
                                                     </li>
                                                     `,
         '');
@@ -99,13 +104,45 @@ const updateCompletedHtml = () => {
 }
 
 const buildCompletedHtml = () => {
-    return completed.reduce((accu, element) => accu + `<li>
+    return completed.reduce((accu, element) => accu + `<li class="task-item">
                                                         <label class="checkbox">
                                                             <input type="checkbox" id="${element.id}" onclick="removeTask(${element.id}, ${2})" checked>
                                                             <span class="checkmark"></span>
                                                         </label>
-                                                        <label for="${element.id}" class="todoText"><s>${element.todo}</s></spen>
+                                                        <label for="${element.id}" class="todoText"><s>${element.todo}</s></label>
+                                                        <button class="delBtn" onclick="deleteCompleted(${element.id})">Delete</button>
                                                     </li>
                                                     `,
         '');
+}
+
+const deleteTodo = (id) => {
+    rtodo = todos.filter((obj) => obj.id === id)[0];
+    todos.splice(todos.indexOf(rtodo), 1);
+    updateTodoCount();
+}
+
+const deleteCompleted = (id) => {
+    dtodo = completed.filter((obj) => obj.id === id)[0];
+    completed.splice(completed.indexOf(dtodo), 1);
+    updateCompletedCount();
+}
+
+
+const makeEdit = (event, id) => {
+    event.preventDefault();
+    let curr = todos.filter((obj)=>obj.id===id)[0];
+
+    curr.todo = document.getElementById("todoInput").value;
+    updateTodoCount();
+    document.getElementById("todoInput").value="";
+    document.getElementById("todoForm").setAttribute("onsubmit", `addTask(event)`);
+}
+
+const editTodo = (id) => {
+    let curr = todos.filter((obj)=>obj.id===id)[0];
+    let input = document.getElementById("todoInput");
+    input.value = curr.todo;
+
+    document.getElementById("todoForm").setAttribute("onsubmit", `makeEdit(event, ${id})`);
 }
